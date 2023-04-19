@@ -9,7 +9,7 @@ Consistency-Models is entirely new paradigm for zero-shot image generation and e
 
 ## Setup
 
-The file `installations.sh` contains all the necessary code to install required things. Note that your system must have CUDA to train Consistency models. Also, you may require different version of `torch` based on the version of CUDA. If you are running this on [Paperspace](https://www.paperspace.com/), then the default version of CUDA is 11.6 which is compatible with this code. If you are running it somewhere else, please check your CUDA version using `nvcc --version`. If the version differs from ours, you may want to change versions of PyTorch libraries in the first line of `installations.sh` by looking at [compatibility table](https://github.com/pytorch/pytorch/wiki/PyTorch-Versions).
+The file `installations.sh` contains all the necessary code to install required dependencies. Note that your system must have CUDA to train Consistency models. Also, you may require different version of `torch` based on the version of CUDA. If you are running this on [Paperspace](https://www.paperspace.com/), then the default version of CUDA is 11.6 which is compatible with this code. If you are running it somewhere else, please check your CUDA version using `nvcc --version`. If the version differs from ours, you may want to change versions of PyTorch libraries in the first line of `installations.sh` by looking at [compatibility table](https://github.com/pytorch/pytorch/wiki/PyTorch-Versions).
 
 To install all the dependencies, run below command:
 
@@ -24,7 +24,7 @@ Above command also clones the original [Consistency-Models](https://github.com/o
 
 `datasets` directory in this repo contains necessary scripts to download the data and make it ready for training. Currently, this repository supports downloading [ImageNet](https://www.image-net.org/) and [LSUN Bedroom](https://www.yf.io/p/lsun) datasets that original authors used.
 
-We have already setup bash scripts for you which will automatically download the dataset for you and will start the training. `datasets` contains the code which will download the training & validation data to the same directory. To download the datasets, you can run below code:
+We have already setup bash scripts for you which will automatically download the dataset for you. `datasets` contains the code which will download the training & validation data to the same directory. To download the datasets, you can run below code:
 
 ```bash
 # Download the ImageNet dataset
@@ -66,12 +66,12 @@ This bash script is compatible to the Paperspace workspace. But if you are runni
 
 Note that you will need to move `checkpoint.pt` file to `checkpoints` directory for inference at the end of training.
 
-Don't worry if you don't want to train the model. Below section illustrates downloading the pretrained checkpoints for inference.
+Don't worry if you don't want to train the model. Below section illustrates downloading the pre-trained checkpoints for inference.
 
 
 ## Running Gradio Demo
 
-Python script `app.py` contains Gradio demo which lets you generate images using pre-trained models. But before we do that, we need to download the pretrained checkpoints into `checkpoints` directory.
+Python script `app.py` contains Gradio demo which lets you generate images using pre-trained models. But before we do that, we need to download the pre-trained checkpoints into `checkpoints` directory.
 
 To download existing checkpoints, run below command:
 
@@ -79,7 +79,7 @@ To download existing checkpoints, run below command:
 bash checkpoints/fetch_checkpoints.sh
 ```
 
-Note that the latest version of code has the pretrained checkpoints for 12 different model types. You can add the code in `fetch_checkpoints.sh` whenever you have the new checkpoints.
+Note that the latest version of code has the pre-trained checkpoints for 12 different model types. You can add the code in `fetch_checkpoints.sh` whenever you have the new checkpoints.
 
 Now, we are ready to launch Gradio demo. Run following command to launch demo:
 
